@@ -69,6 +69,16 @@ if option1=="指定の範囲内から検索する":
             facilities_info.append(facility_info)
            
     df_info=pd.DataFrame(facilities_info)
+    # '評価'カラムの値を数値に変換し、変換できない場合は NaN にする
+    df['評価'] = pd.to_numeric(df['評価'], errors='coerce')
+
+    # NaN を 0 に置き換える
+    df['評価'] = df['評価'].fillna(0)
+    # '口コミ数'カラムの値を数値に変換し、変換できない場合は NaN にする
+    df['口コミ数'] = pd.to_numeric(df['口コミ数'], errors='coerce')
+
+    # NaN を 0 に置き換える
+    df['口コミ数'] = df['口コミ数'].fillna(0)
 
 #最寄りの20件を取得する場合
 else:
