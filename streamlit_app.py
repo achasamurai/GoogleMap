@@ -168,10 +168,11 @@ df_info["url"]=lis1
 st.write("検索を開始しますか？")
 if st.button("開始"):
     st.markdown("""### 検索結果""")
-    #画面に表示するようのデータフレームを作る
+    #画面に表示する用のデータフレームを作る
     st.markdown("""##### データ""")
     df_display=df_info.copy()
     df_display["営業中"]=df_display["営業中"].replace(True,"Open").replace(False,"Close")
+    df_display["価格"]=df.display["価格"].replace(0,"無料").replace(1,"安価").replace(2,"普通").replace(3,"高価").replace(4,"とても高価")
     df_display=df_display[["名前","営業中","価格","評価","口コミ数"]].sort_values("評価",ascending=False).reset_index(drop=True)
     st.write("上から評価順になっています．また，<NA>は不明なことを示しています．")
     st.dataframe(df_display)
