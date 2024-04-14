@@ -198,4 +198,3 @@ if st.button("開始"):
     for name,lat,lng in zip(df_info["名前"],df_info["緯度"],df_info["経度"]):
         folium.Marker(location=[lat, lng],popup=name,icon=folium.Icon(color="red",icon="eye-open")).add_to(m)
     folium_static(m)  
-
