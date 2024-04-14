@@ -11,7 +11,7 @@ GoogleMap上での評価や口コミ数,価格を指定することで,あなた
 st.markdown("""### 1 地点""")
 plc=st.text_input("以下に入力してください.ex)札幌駅",value="")
 
-url =f"""https://maps.googleapis.com/maps/api/geocode/json?address={plc}&language=ja&region=jp&key=YOUR_KEY"""
+url =f"""https://maps.googleapis.com/maps/api/geocode/json?address={plc}&language=ja&region=jp&key=AIzaSyAM1yTGD0EKlXX5QGtKll_e9F8-JrJlyZE"""
 payload={}
 headers={}
 response = requests.request("GET", url, headers=headers, data=payload)
@@ -46,7 +46,7 @@ if option1=="指定の範囲内から検索する":
     ##　キーワードの入力
     st.markdown("""### 4 キーワード""")
     kyw=st.text_input("入力してください.ex)味噌ラーメン",value="")
-    url =f"""https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat}%2C{lng}&language=ja&radius={rmax}&type={typ}&keyword={kyw}&key=YOUR_KEY"""
+    url =f"""https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat}%2C{lng}&language=ja&radius={rmax}&type={typ}&keyword={kyw}&key=AIzaSyAM1yTGD0EKlXX5QGtKll_e9F8-JrJlyZE"""
     payload={}
     headers = {}
     response = requests.request("GET", url, headers=headers, data=payload)
@@ -82,7 +82,7 @@ else:
     st.markdown("""### 4 キーワード""")
     kyw=st.text_input("入力してください.ex)味噌ラーメン",value="")
 
-    url =f"""https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat}%2C{lng}&language=ja&rankby=distance&type={typ}&keyword={kyw}&key=YOUR_KEY"""
+    url =f"""https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat}%2C{lng}&language=ja&rankby=distance&type={typ}&keyword={kyw}&key=AIzaSyAM1yTGD0EKlXX5QGtKll_e9F8-JrJlyZE"""
     payload={}
     headers = {}
     response = requests.request("GET", url, headers=headers, data=payload)
