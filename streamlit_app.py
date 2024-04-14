@@ -57,10 +57,7 @@ if option1=="指定の範囲内から検索する":
                 facility_info["営業中"]=result['opening_hours']["open_now"]
             except:
                 facility_info["営業中"]=None
-            try:
-                facility_info["価格"]=result["price_level"]
-            except:
-                facility_info["価格"]=None
+            facility_info["口コミ数"]=result.get("price_level" , -1)
     
 
             facility_info["評価"]=result.get("rating", 0)
@@ -104,10 +101,7 @@ else:
                 facility_info["営業中"]=result['opening_hours']["open_now"]
             except:
                 facility_info["営業中"]=None
-            try:
-                facility_info["価格"]=result["price_level"]
-            except:
-                facility_info["価格"]=None
+            facility_info["口コミ数"]=result.get("price_level" , -1)
     
             facility_info["評価"]=result.get("rating", 0)
             facility_info["口コミ数"]=result.get("user_ratings_total" , 0)
@@ -183,8 +177,8 @@ if st.button("開始"):
     st.markdown("""##### データ""")
     df_display=df_info.copy()
     df_display["営業中"]=df_display["営業中"].replace(True,"Open").replace(False,"Close")
-    df_display["価格"]=df_display["価格"].replace(0,"無料").replace(1,"安価").replace(2,"普通").replace(3,"高価").replace(4,"とても高価")
-    df_display["価格"]=df_display["価格"].replace("0","無料").replace("1","安価").replace("2","普通").replace("3","高価").replace("4","とても高価")
+    df_display["価格"]=df_display["価格"].replace(0,"無料").replace(1,"安価").replace(2,"普通").replace(3,"高価").replace(4,"とても高価")..replace(-1,"不明")
+    df_display["価格"]=df_display["価格"].replace("0","無料").replace("1","安価").replace("2","普通").replace("3","高価").replace("4","とても高価").replace("-1","不明")
     df_display=df_display[["名前","営業中","価格","評価","口コミ数"]].sort_values("評価",ascending=False).reset_index(drop=True)
     st.write("上から評価順になっています．また，<NA>は不明なことを示しています．")
     st.dataframe(df_display)
