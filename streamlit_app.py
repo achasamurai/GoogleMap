@@ -32,20 +32,16 @@ facility_type={
     "お店":"store",
     "バー":"bar",
     "パン屋":"bakery",
-    "遊園地":"amusement_park",
-    "歯医者":"dentist",
-    "病院":"hospital",
-    "宿泊":"lodging",
-    "キャンプ場":"campground"
+    "酒屋"："liquor_store"
 }
 if option1=="指定の範囲内から検索する":
-    rmax=st.number_input("範囲を指定してください(最大5000m)",min_value=0, max_value=5000, value=1000, step=1000)
+    rmax=st.number_input("範囲を指定してください.(最大5000m、半角数字のみ)",min_value=0, max_value=5000, value=1000, step=1000)
     st.markdown("""### 3 施設の種類""")
     ty=st.selectbox("以下から一つ選んでください",list(facility_type.keys()))
     typ=facility_type[ty]
     ##　キーワードの入力
     st.markdown("""### 4 キーワード""")
-    kyw=st.text_input("入力してください.ex)味噌ラーメン",value="")
+    kyw=st.text_input("入力してください.ex)ラーメン",value="")
     url =f"""https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat}%2C{lng}&language=ja&radius={rmax}&type={typ}&keyword={kyw}&key=AIzaSyAM1yTGD0EKlXX5QGtKll_e9F8-JrJlyZE"""
     payload={}
     headers = {}
@@ -129,12 +125,12 @@ else:
     df_info=pd.concat([df_info1,df_info2])
 ##評価
 st.markdown("""#### 5.2 評価""")
-xmin=st.number_input("評価の下限を0から4で指定してください.ex)4を選んだ場合は,評価が4から5の施設が表示されます.",min_value=0, max_value=4, value=3, step=1)
+xmin=st.number_input("評価の下限を0から4で指定してください.(0.1刻み)",min_value=0, max_value=4, value=3, step=0.1)
 df_info=df_info[df_info["評価"]>=xmin]
 
 ##口コミ数
 st.markdown("""#### 5.3 口コミ数""")
-ymin=st.number_input("口コミ数の下限を指定してください.ex)100を選んだ場合は,口コミ数が100以上の施設が表示されます.",min_value=0,value=0,step=100)
+ymin=st.number_input("口コミ数の下限を指定してください.(100刻み)",min_value=0,value=0,step=100)
 df_info=df_info[df_info["口コミ数"]>=ymin]
 
 ##価格
