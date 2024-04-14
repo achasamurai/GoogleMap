@@ -32,7 +32,7 @@ facility_type={
     "お店":"store",
     "バー":"bar",
     "パン屋":"bakery",
-    "酒屋"："liquor_store"
+    "酒屋":"liquor_store"
 }
 if option1=="指定の範囲内から検索する":
     rmax=st.number_input("範囲を指定してください.(最大5000m、半角数字のみ)",min_value=0, max_value=5000, value=1000, step=1000)
