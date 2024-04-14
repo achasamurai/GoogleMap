@@ -1,3 +1,6 @@
+pandas
+folium
+streamlit_folium
 import requests
 import pandas as pd
 import streamlit as st
