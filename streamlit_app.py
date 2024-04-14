@@ -35,7 +35,7 @@ facility_type={
     "酒屋":"liquor_store"
 }
 if option1=="指定の範囲内から検索する":
-    rmax=st.number_input("範囲を指定してください.(最大5000m、半角数字のみ)",min_value=0, max_value=5000, value=1000, step=1000)
+    rmax=st.number_input("範囲を指定してください.(最大5000m、半角数字のみ)",min_value=0, max_value=5000, value=1000, step=100)
     st.markdown("""### 3 施設の種類""")
     ty=st.selectbox("以下から一つ選んでください",list(facility_type.keys()))
     typ=facility_type[ty]
@@ -135,7 +135,7 @@ df_info=df_info[df_info["評価"]>=xmin]
 
 ##口コミ数
 st.markdown("""#### 5.3 口コミ数""")
-ymin=st.number_input("口コミ数の下限を指定してください.(100刻み)",min_value=0,value=0,step=100)
+ymin=st.number_input("口コミ数の下限を指定してください.(10刻み)",min_value=0,value=0,step=10)
 df_info=df_info[df_info["口コミ数"]>=ymin]
 
 ##価格
