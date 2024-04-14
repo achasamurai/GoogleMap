@@ -130,7 +130,7 @@ else:
     df_info=pd.concat([df_info1,df_info2])
 ##評価
 st.markdown("""#### 5.2 評価""")
-xmin=st.number_input("評価の下限を0から5で指定してください.(0.1刻み)",min_value=0.0, max_value=5.1, value=4.0, step=0.1)
+xmin=st.number_input("評価の下限を0から5で指定してください.(0.1刻み)",min_value=0.0, max_value=5.0, value=4.0, step=0.1)
 df_info=df_info[df_info["評価"]>=xmin]
 
 ##口コミ数
