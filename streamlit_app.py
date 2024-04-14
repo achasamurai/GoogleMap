@@ -98,7 +98,7 @@ else:
             except:
                 facility_info["価格"]=None
     
-            facility_info["評価"]=result.get("rating", None)
+            facility_info["評価"]=result.get("rating", 0)
             facility_info["口コミ数"]=result.get("user_ratings_total" , 0)
             facility_info["id"]=result["place_id"]
             facilities_info.append(facility_info)
