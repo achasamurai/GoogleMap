@@ -57,7 +57,7 @@ if option1=="指定の範囲内から検索する":
                 facility_info["営業中"]=result['opening_hours']["open_now"]
             except:
                 facility_info["営業中"]=None
-            facility_info["口コミ数"]=result.get("price_level" , -1)
+            facility_info["価格"]=result.get("price_level" , -1)
     
 
             facility_info["評価"]=result.get("rating", 0)
@@ -101,7 +101,7 @@ else:
                 facility_info["営業中"]=result['opening_hours']["open_now"]
             except:
                 facility_info["営業中"]=None
-            facility_info["口コミ数"]=result.get("price_level" , -1)
+            facility_info["価格"]=result.get("price_level" , -1)
     
             facility_info["評価"]=result.get("rating", 0)
             facility_info["口コミ数"]=result.get("user_ratings_total" , 0)
