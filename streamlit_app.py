@@ -1,4 +1,3 @@
-pandas
 folium
 streamlit_folium
 import requests
