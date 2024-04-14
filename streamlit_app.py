@@ -41,7 +41,7 @@ if option1=="指定の範囲内から検索する":
     typ=facility_type[ty]
     ##　キーワードの入力
     st.markdown("""### 4 キーワード""")
-    kyw=st.text_input("入力してください.ex)ラーメン",value="")
+    kyw=st.text_input("入力するとより正確です.ex)ラーメン、醤油ラーメン、焼肉、ホルモン、居酒屋、イタリアン、中華料理",value="")
     url =f"""https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat}%2C{lng}&language=ja&radius={rmax}&type={typ}&keyword={kyw}&key=AIzaSyAM1yTGD0EKlXX5QGtKll_e9F8-JrJlyZE"""
     payload={}
     headers = {}
